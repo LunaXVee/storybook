@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storytelling Flipbook</title>
+    <link rel="stylesheet" href="src/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="controls">
+            <button type="button" class="btn-prev">Previous page</button>
+            [<span class="page-current">1</span> of <span class="page-total">-</span>]
+            <button type="button" class="btn-next">Next page</button>
+        </div>
+
+        <div class="status">
+            State: <i class="page-state">read</i>, orientation: <i class="page-orientation">landscape</i>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="flip-book" id="demoBookExample">
+            <!-- Cover Page -->
+            <div class="page page-cover page-cover-top" data-density="hard">
+                <div class="page-content">
+                    <h2>MY STORY</h2>
+                </div>
+            </div>
+
+            <!-- Page 1 -->
+            <div class="page">
+                <div class="page-content">
+                    <h2 class="page-header">Chapter 1</h2>
+                    <div class="page-image"></div>
+                    <div class="page-text">Once upon a time, in a land far away, there lived a curious explorer. The explorer wandered through vast forests and crossed mighty rivers, seeking adventure and wisdom. Each day brought new discoveries and each night brought stories worth telling.</div>
+                    <div class="page-footer">1</div>
+                </div>
+            </div>
+
+            <!-- Page 2 -->
+            <div class="page">
+                <div class="page-content">
+                    <h2 class="page-header">Chapter 2</h2>
+                    <div class="page-image"></div>
+                    <div class="page-text">The journey began on a misty morning, when the sun barely peeked through the clouds. Birds sang their morning songs as the path wound deeper into unknown territories. Every step forward was a step into mystery.</div>
+                    <div class="page-footer">2</div>
+                </div>
+            </div>
+
+            <!-- Page 3 -->
+            <div class="page">
+                <div class="page-content">
+                    <h2 class="page-header">Chapter 3</h2>
+                    <div class="page-image"></div>
+                    <div class="page-text">Mountains rose in the distance, their peaks touching the sky like ancient guardians. The explorer gazed up in wonder, knowing that beyond those peaks lay secrets waiting to be discovered.</div>
+                    <div class="page-footer">3</div>
+                </div>
+            </div>
+
+            <!-- Page 4 -->
+            <div class="page">
+                <div class="page-content">
+                    <h2 class="page-header">Chapter 4</h2>
+                    <div class="page-image"></div>
+                    <div class="page-text">In the valley below, a village bustled with life and endless possibilities. Merchants sold their wares, children played in the streets, and the aroma of fresh bread filled the air.</div>
+                    <div class="page-footer">4</div>
+                </div>
+            </div>
+
+            <!-- Page 5 -->
+            <div class="page">
+                <div class="page-content">
+                    <h2 class="page-header">Chapter 5</h2>
+                    <div class="page-image"></div>
+                    <div class="page-text">The explorer discovered a hidden path, winding through fields of wildflowers. Colors danced in the breeze - purples, yellows, and reds creating a tapestry of natural beauty.</div>
+                    <div class="page-footer">5</div>
+                </div>
+            </div>
+
+            <!-- Page 6 -->
+            <div class="page">
+                <div class="page-content">
+                    <h2 class="page-header">Chapter 6</h2>
+                    <div class="page-image"></div>
+                    <div class="page-text">As night fell, stars emerged like diamonds scattered across velvet. The explorer made camp and reflected on the journey, grateful for every moment of this grand adventure.</div>
+                    <div class="page-footer">6</div>
+                </div>
+            </div>
+
+            <!-- Back Cover -->
+            <div class="page page-cover page-cover-bottom" data-density="hard">
+                <div class="page-content">
+                    <h2>THE END</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load PageFlip from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.min.js"></script>
+    <script src="src/js/script.js"></script>
+</body>
+</html>
