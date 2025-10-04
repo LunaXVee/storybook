@@ -7,6 +7,9 @@ body {
     min-height: 100vh;
 }
 
+h1{
+    text-align: center;
+}
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -55,10 +58,9 @@ body {
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
     margin: 0 auto;
     background-size: cover;
-    display: inline-block;  /* ADD THIS LINE */
-    border-radius: 15px;  /* ADD THIS */
-    overflow: hidden;      /* ADD THIS */
-
+    display: inline-block;
+    border-radius: 15px;
+    overflow: hidden;
 }
 
 /* Page styling */
@@ -78,8 +80,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: stretch;
-    box-sizing: border-box;  /* ADD THIS */
-
+    box-sizing: border-box;
 }
 
 .page-header {
@@ -122,4 +123,60 @@ body {
 .page.--left {
     border-right: 0;
     box-shadow: inset -7px 0 30px -7px rgba(0, 0, 0, 0.4);
+}
+
+/* Right page styling */
+.page.--right {
+    border-left: 0;
+    box-shadow: inset 7px 0 30px -7px rgba(0, 0, 0, 0.4);
+}
+
+.page.--right .page-footer {
+    justify-content: flex-end;
+}
+
+/* Hard cover pages */
+.page.hard {
+    background-color: hsl(35, 50%, 90%);
+    border: solid 1px hsl(35, 20%, 50%);
+}
+
+/* Cover pages */
+.page.page-cover {
+    background-color: hsl(35, 45%, 80%);
+    color: hsl(35, 35%, 35%);
+    border: solid 1px hsl(35, 20%, 50%);
+}
+
+.page.page-cover h2 {
+    text-align: center;
+    padding-top: 50%;
+    font-size: 210%;
+}
+
+.page.page-cover-top {
+    box-shadow: inset 0px 0 30px 0px rgba(36, 10, 3, 0.5),
+                -2px 0 5px 2px rgba(0, 0, 0, 0.4);
+    border-radius: 15px 0 0 15px;
+}
+
+.page.page-cover-bottom {
+    box-shadow: inset 0px 0 30px 0px rgba(36, 10, 3, 0.5),
+                10px 0 8px 0px rgba(0, 0, 0, 0.4);
+    border-radius: 0 15px 15px 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    .page {
+        padding: 15px;
+    }
+    
+    .page-text {
+        font-size: 70%;
+    }
 }
