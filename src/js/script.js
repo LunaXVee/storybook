@@ -2,17 +2,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const pageFlip = new St.PageFlip(
         document.getElementById("demoBookExample"),
         {
-            width: 550, // base page width
-            height: 733, // base page height
-            size: "stretch",
-            // set threshold values:
-            minWidth: 315,
-            maxWidth: 1000,
-            minHeight: 420,
-            maxHeight: 1350,
-            maxShadowOpacity: 0.5, // Half shadow intensity
-            showCover: true,
-            mobileScrollSupport: false // disable content scrolling on mobile devices
+            width: 400,
+    height: 533,
+    size: "fixed",  // Changed from "stretch"
+    minWidth: 315,
+    maxWidth: 800,
+    minHeight: 420,
+    maxHeight: 1066,
+    maxShadowOpacity: 0.5,
+    showCover: false,
+    mobileScrollSupport: false
         }
     );
 
