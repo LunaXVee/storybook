@@ -3,12 +3,13 @@ body {
     margin: 0;
     padding: 20px;
     font-family: Georgia, serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #11120d;
     min-height: 100vh;
 }
 
 h1{
     text-align: center;
+    color: white;
 }
 .container {
     max-width: 1200px;
@@ -192,4 +193,63 @@ h1{
     .page-text {
         font-size: 70%;
     }
+}
+
+
+/* Layered parallax pages */
+.page-layered {
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-layered .page-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.parallax-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.layer-text {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px;
+}
+
+.layer-illustration {
+    justify-content: center;
+    align-items: center;
+}
+
+.spot-title {
+    max-width: 200px;
+    margin-bottom: 10px;
+}
+
+.the-signs-text {
+    max-width: 180px;
+    margin-bottom: 30px;
+}
+
+.body-text {
+    font-size: 18px;
+    color: #a67c52;
+    line-height: 1.6;
+}
+
+.laptop-illustration {
+    max-width: 400px;
+    height: auto;
 }
