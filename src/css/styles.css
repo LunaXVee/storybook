@@ -233,6 +233,7 @@ h1{
     align-items: center;
 }
 
+
 .spot-title {
     max-width: 200px;
     margin-bottom: 10px;
@@ -252,4 +253,34 @@ h1{
 .laptop-illustration {
     max-width: 400px;
     height: auto;
+}
+
+/* Parallax during flip - using CSS transforms */
+.page-layered {
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+}
+
+.parallax-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    transform-style: preserve-3d;
+    transition: transform 0.1s linear;
+}
+
+/* When page is flipping, move layers based on parent rotation */
+.page-layered.--left .layer-text,
+.page-layered.--left .layer-illustration {
+    transform: translateX(calc(var(--flip-progress, 0) * -30px));
+}
+
+.page-layered.--right .layer-text,
+.page-layered.--right .layer-illustration {
+    transform: translateX(calc(var(--flip-progress, 0) * 30px));
 }

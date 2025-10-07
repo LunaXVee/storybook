@@ -20,15 +20,26 @@ document.addEventListener('DOMContentLoaded', function() {
     const pages = document.querySelectorAll(".page");
     pageFlip.loadFromHTML(pages);
     
+    // Initialize parallax layer positions
+    const allLayers = document.querySelectorAll(".parallax-layer");
+    allLayers.forEach(layer => {
+        gsap.set(layer, { x: 50 }); // Start at right
+    });
+    
     document.querySelector(".page-total").innerText = pageFlip.getPageCount();
     document.querySelector(".page-orientation").innerText = pageFlip.getOrientation();
 
+    // Track flip direction
+    let isFlippingNext = true;
+
     // Navigation buttons
     document.querySelector(".btn-prev").addEventListener("click", () => {
+        isFlippingNext = false;
         pageFlip.flipPrev();
     });
 
     document.querySelector(".btn-next").addEventListener("click", () => {
+        isFlippingNext = true;
         pageFlip.flipNext();
     });
 
@@ -38,48 +49,41 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector(".page-current").innerText = currentPage + 1;
     }
 
-    // Parallax effect during page flip
     pageFlip.on("flip", (e) => {
-        console.log('Page flipping to:', e.data);
+        console.log('Flip starting');
         updateControls();
-        
-        // Animate parallax layers on the current spread
-        const allPages = document.querySelectorAll(".page-layered");
-        
-        allPages.forEach((page, index) => {
-            const layers = page.querySelectorAll(".parallax-layer");
-            
-            layers.forEach(layer => {
-                const speed = parseFloat(layer.dataset.speed) || 0.5;
-                
-                // Determine direction based on page position
-                const isLeftPage = index % 2 === 0;
-                const moveDistance = isLeftPage ? -80 : 80;
-                
-                gsap.to(layer, {
-                    x: moveDistance * speed,
-                    duration: 0.8,
-                    ease: "power2.out"
-                });
-            });
-        });
     });
 
-    // Reset parallax when flip completes
+    // This should fire during the flip animation
     pageFlip.on("changeState", (e) => {
         document.querySelector(".page-state").innerText = e.data;
+        console.log('State:', e.data);
         
-        if (e.data === "read") {
-            console.log('Flip complete, resetting parallax');
-            // Reset all parallax layers
-            const allLayers = document.querySelectorAll(".parallax-layer");
-            gsap.to(allLayers, {
-                x: 0,
-                duration: 0.6,
-                ease: "power2.inOut"
-            });
-        }
+        if (e.data === "flipping" || e.data === "fold_corner") {
+            // Page is actively flipping - animate based on direction
+            animateParallaxDuringFlip(isFlippingNext);
+        } 
     });
+
+    function animateParallaxDuringFlip(movingForward) {
+        const allLayers = document.querySelectorAll(".parallax-layer");
+        
+        allLayers.forEach(layer => {
+            const speed = parseFloat(layer.dataset.speed) || 0.5;
+            
+            // Get current x position
+            const currentX = gsap.getProperty(layer, "x") || 50;
+            
+            // Move left when going forward (next), right when going back (prev)
+            const direction = movingForward ? -1 : 1;
+            
+            gsap.to(layer, {
+                x: currentX + (direction * 50 * speed),
+                duration: 1,
+                ease: "none"
+            });
+        });
+    }
 
     pageFlip.on("changeOrientation", (e) => {
         document.querySelector(".page-orientation").innerText = e.data;
