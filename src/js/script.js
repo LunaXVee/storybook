@@ -40,6 +40,102 @@ document.addEventListener('DOMContentLoaded', function() {
         pageFlip.flipPrev();
     });
 
+
+    // Get arrow buttons
+    const leftArrow = document.querySelector(".nav-arrow-left");
+    const rightArrow = document.querySelector(".nav-arrow-right");
+
+    // Function to update arrow states
+    function updateArrowStates() {
+        const currentPage = pageFlip.getCurrentPageIndex();
+        const totalPages = pageFlip.getPageCount();
+        
+        // Disable left arrow on first page
+        if (currentPage === 0) {
+            leftArrow.disabled = true;
+            leftArrow.style.opacity = "0.3";
+            leftArrow.style.cursor = "not-allowed";
+        } else {
+            leftArrow.disabled = false;
+            leftArrow.style.opacity = "1";
+            leftArrow.style.cursor = "pointer";
+        }
+        
+        // Disable right arrow on last page
+        if (currentPage >= totalPages - 1) {
+            rightArrow.disabled = true;
+            rightArrow.style.opacity = "0.3";
+            rightArrow.style.cursor = "not-allowed";
+        } else {
+            rightArrow.disabled = false;
+            rightArrow.style.opacity = "1";
+            rightArrow.style.cursor = "pointer";
+        }
+    }
+
+    // Navigation buttons (original)
+    document.querySelector(".btn-prev").addEventListener("click", () => {
+        isFlippingNext = false;
+        pageFlip.flipPrev();
+    });
+
+    document.querySelector(".btn-next").addEventListener("click", () => {
+        isFlippingNext = true;
+        pageFlip.flipNext();
+    });
+
+    // Arrow navigation
+    leftArrow.addEventListener("click", () => {
+        if (!leftArrow.disabled) {
+            isFlippingNext = false;
+            pageFlip.flipPrev();
+            
+            // Add animation feedback
+            leftArrow.style.transform = "translateY(-50%) scale(0.9)";
+            setTimeout(() => {
+                leftArrow.style.transform = "translateY(-50%)";
+            }, 200);
+        }
+    });
+
+    rightArrow.addEventListener("click", () => {
+        if (!rightArrow.disabled) {
+            isFlippingNext = true;
+            pageFlip.flipNext();
+            
+            // Add animation feedback
+            rightArrow.style.transform = "translateY(-50%) scale(0.9)";
+            setTimeout(() => {
+                rightArrow.style.transform = "translateY(-50%)";
+            }, 200);
+        }
+    });
+
+    // Keyboard navigation with arrow keys
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowLeft") {
+            if (!leftArrow.disabled) {
+                isFlippingNext = false;
+                pageFlip.flipPrev();
+                // Visual feedback for keyboard navigation
+                leftArrow.style.background = "rgba(200, 200, 255, 0.9)";
+                setTimeout(() => {
+                    leftArrow.style.background = "";
+                }, 200);
+            }
+        } else if (e.key === "ArrowRight") {
+            if (!rightArrow.disabled) {
+                isFlippingNext = true;
+                pageFlip.flipNext();
+                // Visual feedback for keyboard navigation
+                rightArrow.style.background = "rgba(200, 200, 255, 0.9)";
+                setTimeout(() => {
+                    rightArrow.style.background = "";
+                }, 200);
+            }
+        }
+    });
+
     document.querySelector(".btn-next").addEventListener("click", () => {
         isFlippingNext = true;
         pageFlip.flipNext();

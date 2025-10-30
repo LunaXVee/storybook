@@ -284,3 +284,150 @@ h1{
 .page-layered.--right .layer-illustration {
     transform: translateX(calc(var(--flip-progress, 0) * 30px));
 }
+
+/* Add these styles to your existing styles.css file */
+
+/* Updated CSS for hand-drawn arrows - closer, bigger, and white */
+
+/* Book wrapper with less padding */
+.book-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px auto;
+    padding: 0 120px; /* Reduced padding to bring arrows closer */
+    max-width: 100%;
+}
+
+/* Hand-drawn Arrow Styles */
+.nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 100;
+    padding: 10px;
+}
+
+/* Position arrows MUCH closer to the book */
+.nav-arrow-left {
+    left: 50px;  /* Changed from 10px to 50px - much closer to book */
+}
+
+.nav-arrow-right {
+    right: 50px;  /* Changed from 10px to 50px - much closer to book */
+}
+
+/* Make arrows WHITE and BIGGER */
+.nav-arrow svg {
+    color: white;  /* Changed from #333 to white */
+    width: 80px;   /* Increased size */
+    height: 80px;  /* Increased size */
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5)); /* Add shadow for visibility */
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Hover effects - make even bigger and add glow */
+.nav-arrow:hover svg {
+    color: white;  /* Stay white on hover */
+    transform: scale(1.2);  /* Make bigger on hover */
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8)); /* Glow effect */
+}
+
+/* Subtle bounce animation on hover */
+.nav-arrow-left:hover svg {
+    animation: bounceLeft 0.5s ease;
+}
+
+.nav-arrow-right:hover svg {
+    animation: bounceRight 0.5s ease;
+}
+
+/* Bounce animations */
+@keyframes bounceLeft {
+    0%, 100% { transform: scaleX(-1) translateX(0); }
+    50% { transform: scaleX(-1) translateX(-8px); }
+}
+
+@keyframes bounceRight {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(8px); }
+}
+
+/* Active/click effect */
+.nav-arrow:active svg {
+    transform: scale(1.0);
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 1));
+}
+
+/* Disabled state - semi-transparent white */
+.nav-arrow:disabled {
+    opacity: 0.2;  /* Very faded when disabled */
+    cursor: not-allowed;
+}
+
+.nav-arrow:disabled svg {
+    color: rgba(255, 255, 255, 0.5);  /* Faded white */
+}
+
+.nav-arrow:disabled:hover svg {
+    transform: none;
+    animation: none;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+/* Optional: Add a subtle pulsing effect to draw attention */
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+.nav-arrow svg {
+    animation: pulse 3s infinite ease-in-out;
+}
+
+.nav-arrow:hover svg {
+    animation: none;  /* Stop pulsing on hover */
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .book-wrapper {
+        padding: 0 90px;
+    }
+    
+    .nav-arrow svg {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .nav-arrow-left {
+        left: 30px;
+    }
+    
+    .nav-arrow-right {
+        right: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-arrow svg {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .nav-arrow-left {
+        left: 15px;
+    }
+    
+    .nav-arrow-right {
+        right: 15px;
+    }
+}
