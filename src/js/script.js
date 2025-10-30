@@ -1,3 +1,4 @@
+// Wait for DOM to be ready
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Initializing flipbook...');
     
@@ -12,7 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
         minHeight: 420,
         maxHeight: 1066,
         maxShadowOpacity: 0.5,
-        showCover: false,
+        showCover: true,  // CHANGED: Set to true to enable cover mode
+        startPage: 0,     // ADDED: Start at page 0 (the front cover)
         mobileScrollSupport: false
     });
 
