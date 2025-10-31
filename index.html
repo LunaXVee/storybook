@@ -7,117 +7,135 @@
     <link rel="stylesheet" href="src/css/styles.css">
 </head>
 <body>
-    <h1>Test for big money book</h1>
-    <div class="container">
-        
-
-        <div class="status">
-            State: <i class="page-state">read</i>, orientation: <i class="page-orientation">landscape</i>
-        </div>
-    </div>
+    <!-- Title with minimal spacing -->
+    <img src="src/images/amina_title32.svg" alt="Hidden Helpers" style="display: block; margin: 10px auto 20px auto; max-width: 300px; width: 100%; height: auto;">
 
     <!-- Book container with side navigation arrows -->
     <div class="book-wrapper">
-       <!-- Left Arrow (flipped version of your arrow) -->
-<button class="nav-arrow nav-arrow-left" aria-label="Previous page">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 33" fill="currentColor" width="64" height="64" style="transform: scaleX(-1);">
-        <path d="M0.734436 32.0433C28.1185 20.8631 58.321 14.4162 87.6991 11.2271C93.6909 10.5767 99.7856 10.1329 105.681 8.82643C106.565 8.6305 107.666 8.45126 108.257 7.71167" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="currentColor"/>
-        <path d="M105.295 7.55369C103.251 6.41332 98.0697 4.73081 97.3989 2.01718C97.3762 1.92544 97.3095 1.31771 97.3374 1.37859C98.1737 3.20315 97.6004 7.32036 97.4208 9.32238C97.3735 9.84973 96.396 15.3811 96.8612 15.1485C101.235 12.9619 105.361 8.83254 109.442 6.05271" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="currentColor"/>
-    </svg>
-</button>
+        <!-- Left Arrow (flipped version) -->
+        <button class="nav-arrow nav-arrow-left" aria-label="Previous page">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 33" fill="currentColor" width="64" height="64" style="transform: scaleX(-1);">
+                <path d="M0.734436 32.0433C28.1185 20.8631 58.321 14.4162 87.6991 11.2271C93.6909 10.5767 99.7856 10.1329 105.681 8.82643C106.565 8.6305 107.666 8.45126 108.257 7.71167" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="currentColor"/>
+                <path d="M105.295 7.55369C103.251 6.41332 98.0697 4.73081 97.3989 2.01718C97.3762 1.92544 97.3095 1.31771 97.3374 1.37859C98.1737 3.20315 97.6004 7.32036 97.4208 9.32238C97.3735 9.84973 96.396 15.3811 96.8612 15.1485C101.235 12.9619 105.361 8.83254 109.442 6.05271" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="currentColor"/>
+            </svg>
+        </button>
 
         <!-- Book Container -->
-        <div class="container">
-            <div class="flip-book" id="demoBookExample">
-                <!-- Cover Page -->
-                <div class="page page-cover page-cover-top" data-density="hard">
-                    <div class="page-content">
-                        <h2>Hidden Helpers </h2>
+        <div class="flip-book" id="demoBookExample">
+            <!-- Cover Page -->
+            <div class="page page-cover page-cover-top" data-density="hard">
+                <div class="page-content">
+                    <h2>Hidden Helpers</h2>
+                </div>
+            </div>
+
+            <!-- Page 2 -->
+            <div class="page">
+                <div class="page-content">
+                    <h2 class="page-header">Aminas Journey to NonProfit Organizations</h2>
+                    <div class="page-image"></div>
+                    <div class="page-text">Mountains rose in the distance, their peaks touching the sky like ancient guardians. The explorer gazed up in wonder, knowing that beyond those peaks lay secrets waiting to be discovered.</div>
+                    <div class="page-footer">3</div>
+                </div>
+            </div>
+
+               <!-- Page 2.2 -->
+               <div class="page">
+                <div class="page-content">
+                    <h2 class="page-header">Aminas Journey to NonProfit Organizations</h2>
+                    <div class="page-image"></div>
+                    <div class="page-text">Mountains rose in the distance, their peaks touching the sky like ancient guardians. The explorer gazed up in wonder, knowing that beyond those peaks lay secrets waiting to be discovered.</div>
+                    <div class="page-footer">3</div>
+                </div>
+            </div>
+
+
+            <!-- Page 1-trial -->
+            <div class="page page-fullimage">
+                <div class="page-content" style="background-image: url('src/images/Amina1.png'); background-size: cover; background-position: center;">
+                </div>
+            </div>
+
+            <!-- Page 2- trial -->
+            <div class="page page-fullimage">
+                <div class="page-content" style="background-image: url('src/images/Amina2.png'); background-size: cover; background-position: center;">
+                </div>
+            </div>
+
+            <!-- Page 3-trial -->
+            <div class="page page-fullimage">
+                <div class="page-content" style="background-image: url('src/images/amina3.png'); background-size: cover; background-position: center;">
+                </div>
+            </div>
+
+            <!-- Page 4- trial -->
+            <div class="page page-fullimage">
+                <div class="page-content" style="background-image: url('src/images/amina4.png'); background-size: cover; background-position: center;">
+                </div>
+            </div>
+
+            <!-- Page 5-trial -->
+            <div class="page page-fullimage">
+                <div class="page-content" style="background-image: url('src/images/amina6.png'); background-size: cover; background-position: center;">
+                </div>
+            </div>
+
+            <!-- Page 6- trial -->
+            <div class="page page-fullimage">
+                <div class="page-content" style="background-image: url('src/images/amina5.png'); background-size: cover; background-position: center;">
+                </div>
+            </div>
+
+            <!-- Page - Left side of SPOT spread -->
+            <div class="page page-layered" data-page="spot-left">
+                <div class="page-content" style="background-image: url('src/images/try-left.jpg'); background-size: cover; background-position: center;">
+                    <!-- Moving text layer -->
+                    <div class="parallax-layer layer-text" data-speed="0.6">
+                        <img src="src/images/spot.png" alt="SPOT" class="spot-title">
                     </div>
                 </div>
+            </div>
 
-                <!-- Page 2 -->
-                <div class="page">
-                    <div class="page-content">
-                        <h2 class="page-header">Aminas Journey to NonProfit Organizations</h2>
-                        <div class="page-image"></div>
-                        <div class="page-text">Mountains rose in the distance, their peaks touching the sky like ancient guardians. The explorer gazed up in wonder, knowing that beyond those peaks lay secrets waiting to be discovered.</div>
-                        <div class="page-footer">3</div>
+            <!-- Page - Right side of SPOT spread -->
+            <div class="page page-layered" data-page="spot-right">
+                <div class="page-content" style="background-image: url('src/images/try-right.jpg'); background-size: cover; background-position: center;">
+                    <!-- Moving illustration layer -->
+                    <div class="parallax-layer layer-illustration" data-speed="0.8">
+                        <img src="src/images/computer.png" alt="laptop character" class="laptop-illustration">
                     </div>
                 </div>
+            </div>
 
-                <!-- Page 1-trial -->
-                <div class="page page-fullimage">
-                    <div class="page-content" style="background-image: url('src/images/Amina1.png'); background-size: cover; background-position: center;">
-                    </div>
-                </div>
-
-                <!-- Page 2- trial -->
-                <div class="page page-fullimage">
-                    <div class="page-content" style="background-image: url('src/images/Amina2.png'); background-size: cover; background-position: center;">
-                    </div>
-                </div>
-
-                <!-- Page 3-trial -->
-                <div class="page page-fullimage">
-                    <div class="page-content" style="background-image: url('src/images/amina3.png'); background-size: cover; background-position: center;">
-                    </div>
-                </div>
-
-                <!-- Page 4- trial -->
-                <div class="page page-fullimage">
-                    <div class="page-content" style="background-image: url('src/images/amina4.png'); background-size: cover; background-position: center;">
-                    </div>
-                </div>
-
-                <!-- Page 5-trial -->
-                <div class="page page-fullimage">
-                    <div class="page-content" style="background-image: url('src/images/amina6.png'); background-size: cover; background-position: center;">
-                    </div>
-                </div>
-
-                <!-- Page 6- trial -->
-                <div class="page page-fullimage">
-                    <div class="page-content" style="background-image: url('src/images/amina5.png'); background-size: cover; background-position: center;">
-                    </div>
-                </div>
-
-                <!-- Page - Left side of SPOT spread -->
-                <div class="page page-layered" data-page="spot-left">
-                    <div class="page-content" style="background-image: url('src/images/try-left.jpg'); background-size: cover; background-position: center;">
-                        <!-- Moving text layer -->
-                        <div class="parallax-layer layer-text" data-speed="0.6">
-                            <img src="src/images/spot.png" alt="SPOT" class="spot-title">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Page - Right side of SPOT spread -->
-                <div class="page page-layered" data-page="spot-right">
-                    <div class="page-content" style="background-image: url('src/images/try-right.jpg'); background-size: cover; background-position: center;">
-                        <!-- Moving illustration layer -->
-                        <div class="parallax-layer layer-illustration" data-speed="0.8">
-                            <img src="src/images/computer.png" alt="laptop character" class="laptop-illustration">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Back Cover -->
-                <div class="page page-cover page-cover-bottom" data-density="hard">
-                    <div class="page-content">
-                        <h2>THE END</h2>
-                    </div>
+            <!-- Back Cover -->
+            <div class="page page-cover page-cover-bottom" data-density="hard">
+                <div class="page-content">
+                    <h2>THE END</h2>
                 </div>
             </div>
         </div>
 
-       <!-- Right Arrow (original direction) -->
-<button class="nav-arrow nav-arrow-right" aria-label="Next page">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 33" fill="currentColor" width="64" height="64">
-        <path d="M0.734436 32.0433C28.1185 20.8631 58.321 14.4162 87.6991 11.2271C93.6909 10.5767 99.7856 10.1329 105.681 8.82643C106.565 8.6305 107.666 8.45126 108.257 7.71167" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="currentColor"/>
-        <path d="M105.295 7.55369C103.251 6.41332 98.0697 4.73081 97.3989 2.01718C97.3762 1.92544 97.3095 1.31771 97.3374 1.37859C98.1737 3.20315 97.6004 7.32036 97.4208 9.32238C97.3735 9.84973 96.396 15.3811 96.8612 15.1485C101.235 12.9619 105.361 8.83254 109.442 6.05271" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="currentColor"/>
-    </svg>
-</button>
+        <!-- Right Arrow -->
+        <button class="nav-arrow nav-arrow-right" aria-label="Next page">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 33" fill="currentColor" width="64" height="64">
+                <path d="M0.734436 32.0433C28.1185 20.8631 58.321 14.4162 87.6991 11.2271C93.6909 10.5767 99.7856 10.1329 105.681 8.82643C106.565 8.6305 107.666 8.45126 108.257 7.71167" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="currentColor"/>
+                <path d="M105.295 7.55369C103.251 6.41332 98.0697 4.73081 97.3989 2.01718C97.3762 1.92544 97.3095 1.31771 97.3374 1.37859C98.1737 3.20315 97.6004 7.32036 97.4208 9.32238C97.3735 9.84973 96.396 15.3811 96.8612 15.1485C101.235 12.9619 105.361 8.83254 109.442 6.05271" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="currentColor"/>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Footer styled and positioned below the book -->
+    <footer style="margin-top: 40px; padding: 20px; text-align: center; color: #999; font-size: 14px;">
+        <div>
+            <p style="margin: 5px;">© 2025 Acme Inc.</p>
+            <p style="margin: 5px;">123 Main Street, Springfield, IL</p>
+            <p style="margin: 5px;">Email: contact@acme.com</p>
+        </div>
+        <nav style="margin-top: 15px;">
+            <a href="/faq" style="color: #667eea; text-decoration: none; margin: 0 10px;">FAQ</a> |
+            <a href="/support" style="color: #667eea; text-decoration: none; margin: 0 10px;">Support</a> |
+            <a href="/careers" style="color: #667eea; text-decoration: none; margin: 0 10px;">Careers</a>
+        </nav>
+    </footer>
 
     <!-- Load GSAP for animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
