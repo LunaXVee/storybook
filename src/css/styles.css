@@ -323,9 +323,8 @@ h1{
     right: 50px;  /* Changed from 10px to 50px - much closer to book */
 }
 
-/* Make arrows WHITE and BIGGER */
-.nav-arrow svg {
-    color: white;  /* Changed from #333 to white */
+/* Make arrows BIGGER */
+.nav-arrow img {
     width: 80px;   /* Increased size */
     height: 80px;  /* Increased size */
     filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5)); /* Add shadow for visibility */
@@ -333,18 +332,17 @@ h1{
 }
 
 /* Hover effects - make even bigger and add glow */
-.nav-arrow:hover svg {
-    color: white;  /* Stay white on hover */
+.nav-arrow:hover img {
     transform: scale(1.2);  /* Make bigger on hover */
     filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8)); /* Glow effect */
 }
 
 /* Subtle bounce animation on hover */
-.nav-arrow-left:hover svg {
+.nav-arrow-left:hover img {
     animation: bounceLeft 0.5s ease;
 }
 
-.nav-arrow-right:hover svg {
+.nav-arrow-right:hover img {
     animation: bounceRight 0.5s ease;
 }
 
@@ -360,7 +358,7 @@ h1{
 }
 
 /* Active/click effect */
-.nav-arrow:active svg {
+.nav-arrow:active img {
     transform: scale(1.0);
     filter: drop-shadow(0 0 15px rgba(255, 255, 255, 1));
 }
@@ -371,11 +369,11 @@ h1{
     cursor: not-allowed;
 }
 
-.nav-arrow:disabled svg {
-    color: rgba(255, 255, 255, 0.5);  /* Faded white */
+.nav-arrow:disabled img {
+    opacity: 0.5;  /* Faded */
 }
 
-.nav-arrow:disabled:hover svg {
+.nav-arrow:disabled:hover img {
     transform: none;
     animation: none;
     filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
@@ -387,11 +385,11 @@ h1{
     50% { opacity: 0.8; }
 }
 
-.nav-arrow svg {
+.nav-arrow img {
     animation: pulse 3s infinite ease-in-out;
 }
 
-.nav-arrow:hover svg {
+.nav-arrow:hover img {
     animation: none;  /* Stop pulsing on hover */
 }
 
@@ -401,7 +399,7 @@ h1{
         padding: 0 90px;
     }
     
-    .nav-arrow svg {
+    .nav-arrow img {
         width: 60px;
         height: 60px;
     }
@@ -416,7 +414,7 @@ h1{
 }
 
 @media (max-width: 480px) {
-    .nav-arrow svg {
+    .nav-arrow img {
         width: 50px;
         height: 50px;
     }

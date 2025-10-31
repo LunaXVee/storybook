@@ -28,22 +28,29 @@ document.addEventListener('DOMContentLoaded', function() {
         gsap.set(layer, { x: 50 }); // Start at right
     });
     
-    document.querySelector(".page-total").innerText = pageFlip.getPageCount();
-    document.querySelector(".page-orientation").innerText = pageFlip.getOrientation();
+    // Safely update page total and orientation if elements exist
+    const pageTotalElement = document.querySelector(".page-total");
+    const pageOrientationElement = document.querySelector(".page-orientation");
+    
+    if (pageTotalElement) {
+        pageTotalElement.innerText = pageFlip.getPageCount();
+    }
+    if (pageOrientationElement) {
+        pageOrientationElement.innerText = pageFlip.getOrientation();
+    }
 
     // Track flip direction
     let isFlippingNext = true;
 
-    // Navigation buttons
-    document.querySelector(".btn-prev").addEventListener("click", () => {
-        isFlippingNext = false;
-        pageFlip.flipPrev();
-    });
-
-
     // Get arrow buttons
     const leftArrow = document.querySelector(".nav-arrow-left");
     const rightArrow = document.querySelector(".nav-arrow-right");
+
+    // Check if arrows exist before adding functionality
+    if (!leftArrow || !rightArrow) {
+        console.error("Arrow buttons not found in HTML!");
+        return;
+    }
 
     // Function to update arrow states
     function updateArrowStates() {
@@ -73,20 +80,31 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Navigation buttons (original)
-    document.querySelector(".btn-prev").addEventListener("click", () => {
-        isFlippingNext = false;
-        pageFlip.flipPrev();
-    });
+    // Navigation buttons (original) - only if they exist
+    const btnPrev = document.querySelector(".btn-prev");
+    const btnNext = document.querySelector(".btn-next");
+    
+    if (btnPrev) {
+        btnPrev.addEventListener("click", () => {
+            isFlippingNext = false;
+            pageFlip.flipPrev();
+        });
+    }
 
-    document.querySelector(".btn-next").addEventListener("click", () => {
-        isFlippingNext = true;
-        pageFlip.flipNext();
-    });
+    if (btnNext) {
+        btnNext.addEventListener("click", () => {
+            isFlippingNext = true;
+            pageFlip.flipNext();
+        });
+    }
 
     // Arrow navigation
     leftArrow.addEventListener("click", () => {
+        console.log("Left arrow clicked!");
+        console.log("Left arrow disabled?", leftArrow.disabled);
+        
         if (!leftArrow.disabled) {
+            console.log("Attempting to flip previous...");
             isFlippingNext = false;
             pageFlip.flipPrev();
             
@@ -95,11 +113,17 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => {
                 leftArrow.style.transform = "translateY(-50%)";
             }, 200);
+        } else {
+            console.log("Left arrow is disabled, cannot flip.");
         }
     });
 
     rightArrow.addEventListener("click", () => {
+        console.log("Right arrow clicked!");
+        console.log("Right arrow disabled?", rightArrow.disabled);
+        
         if (!rightArrow.disabled) {
+            console.log("Attempting to flip next...");
             isFlippingNext = true;
             pageFlip.flipNext();
             
@@ -108,6 +132,8 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => {
                 rightArrow.style.transform = "translateY(-50%)";
             }, 200);
+        } else {
+            console.log("Right arrow is disabled, cannot flip.");
         }
     });
 
@@ -136,15 +162,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    document.querySelector(".btn-next").addEventListener("click", () => {
-        isFlippingNext = true;
-        pageFlip.flipNext();
-    });
-
     // Update page counter
     function updateControls() {
         const currentPage = pageFlip.getCurrentPageIndex();
-        document.querySelector(".page-current").innerText = currentPage + 1;
+        const pageCurrentElement = document.querySelector(".page-current");
+        
+        if (pageCurrentElement) {
+            pageCurrentElement.innerText = currentPage + 1;
+        }
+        updateArrowStates(); // ADDED: Update arrow states when page changes
     }
 
     pageFlip.on("flip", (e) => {
@@ -154,7 +180,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // This should fire during the flip animation
     pageFlip.on("changeState", (e) => {
-        document.querySelector(".page-state").innerText = e.data;
+        const pageStateElement = document.querySelector(".page-state");
+        if (pageStateElement) {
+            pageStateElement.innerText = e.data;
+        }
         console.log('State:', e.data);
         
         if (e.data === "flipping" || e.data === "fold_corner") {
@@ -184,8 +213,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     pageFlip.on("changeOrientation", (e) => {
-        document.querySelector(".page-orientation").innerText = e.data;
+        if (pageOrientationElement) {
+            pageOrientationElement.innerText = e.data;
+        }
     });
 
     console.log('Flipbook initialized!');
+    updateArrowStates(); // ADDED: Set initial arrow states on load
 });
