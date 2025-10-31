@@ -3,7 +3,8 @@ body {
     margin: 0;
     padding: 20px;
     font-family: Georgia, serif;
-    background: #11120d;
+    background: url('../images/black2.jpg') no-repeat center center fixed;
+    background-size: cover;
     min-height: 100vh;
 }
 
@@ -66,8 +67,7 @@ h1{
 .page {
     padding: 20px;
     background-color: hsl(35, 55%, 98%);
-    color: hsl(35, 35%, 35%);
-    border: solid 1px hsl(35, 20%, 70%);
+    
     overflow: hidden;
     box-sizing: border-box;
 }
@@ -135,15 +135,14 @@ h1{
 }
 
 /* Hard cover pages */
-.page.hard {
-    background-color: hsl(35, 50%, 90%);
-}
+
 
 /* Cover pages */
 .page.page-cover {
-    background-color: #231f20; /* Change from hsl(35, 45%, 80%) to black */
+    background-color: #231f20;
     color: #231f20;
     border: solid 1px #231f20;
+    padding: 0;  /* Add this line */
 }
 
 .page.page-cover h2 {
