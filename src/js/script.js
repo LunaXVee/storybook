@@ -194,23 +194,36 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function animateParallaxDuringFlip(movingForward) {
         const allLayers = document.querySelectorAll(".parallax-layer");
-        
+    
         allLayers.forEach(layer => {
             const speed = parseFloat(layer.dataset.speed) || 0.5;
-            
-            // Get current x position
-            const currentX = gsap.getProperty(layer, "x") || 50;
-            
-            // Move left when going forward (next), right when going back (prev)
+    
+            // Base position (where elements return after each move)
+            const baseX = parseFloat(layer.dataset.baseX || 0);
+    
+            // Move left if next, right if previous
             const direction = movingForward ? -1 : 1;
-            
+    
+            // Calculate temporary offset
+            const offset = 30 * speed * direction;
+    
+            // Animate small shift
             gsap.to(layer, {
-                x: currentX + (direction * 50 * speed),
-                duration: 1,
-                ease: "none"
+                x: baseX + offset,
+                duration: 0.6,
+                ease: "power1.out",
+                onComplete: () => {
+                    // Return to base position smoothly
+                    gsap.to(layer, {
+                        x: baseX,
+                        duration: 0.8,
+                        ease: "power1.inOut"
+                    });
+                }
             });
         });
     }
+    
 
     pageFlip.on("changeOrientation", (e) => {
         if (pageOrientationElement) {
